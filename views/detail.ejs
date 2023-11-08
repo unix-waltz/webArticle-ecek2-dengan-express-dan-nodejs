@@ -13,7 +13,12 @@
  <small> <%= data.createdAt %></small>
  <h6>Created by :  <%= data.author %></h6>
  <br>
- <a  href="/">Go Back 🔙 </a> &nbsp;  <a  href="/main/edit/<%=data.id%>">Edit 📲  </a> &nbsp;  <a  href="/main/delete/<%=data.id%>">delete ✍  </a>
+ <a  href="/">Go Back 🔙 </a> &nbsp;  <a  href="/main/edit/<%=data.id%>">Edit 📲  </a> &nbsp; 
+ <form action="/main/delete?_method=DELETE" method="POST">
+  <input type="hidden" name="id" value="<%= data.id%>">
+  <button type="submit">Delete 😲 </button>
+ </form>
+
  <hr><br>
  <h5>
   <%= data.body %>

@@ -21,6 +21,15 @@ res.render(`index`,{data:data});
 detailArticle : async (req,res)=>{
  const dataD = await Model.findOne({_id :req.params.id})
  res.render(`detail`,{data:dataD});
+    },
+deleteArticle:async (req,res) => {
+    try{
+        
+const deleteable = await Model.findByIdAndDelete(req.body.id);
+if(deleteable) res.redirect('/')
+    }catch(e){
+        console.log(e)
+    }
     }
 }
 export default ArticleController;
