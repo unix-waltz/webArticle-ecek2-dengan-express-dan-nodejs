@@ -3,7 +3,7 @@ const app = express();
 
 import Route from "./../src/Routes/Articles.js";
 
-
+app.use(express.urlencoded({ extended: false }));
 app.set('view engine', 'ejs');
 app.use(`/main` ,Route);
 

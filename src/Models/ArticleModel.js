@@ -4,11 +4,11 @@ const ArticleModel = new mongoose.Schema({
         required : true,
         type : String,
     },
-    description:{
+    body:{
         required : true,
         type : String,
     },
-    markdown:{
+   author:{
         required : true,
         type : String,
     },
