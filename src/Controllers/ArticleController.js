@@ -30,6 +30,22 @@ if(deleteable) res.redirect('/')
     }catch(e){
         console.log(e)
     }
+    },
+viewEditArticle : async (req,res) => {
+    let value = await Model.findOne({_id :req.params.id});
+    res.render(`edit`,{value:value});
+    },
+    editArticle : async (req,res) => {
+      try{
+        let result = await Model.findByIdAndUpdate(req.body.id , {
+           title : req.body.title,
+           author : req.body.author,
+           body : req.body.body
+        });
+        if(result) res.redirect('/')
+      }catch(e){
+        console.log(e)
+      }
     }
 }
 export default ArticleController;

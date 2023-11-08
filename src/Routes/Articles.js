@@ -10,4 +10,6 @@ Route.get('/new', (req,res)=>{
 Route.post('/new',ArticleController.createArticle);
 Route.get('/detail/:id', ArticleController.detailArticle);
 Route.delete('/delete', ArticleController.deleteArticle);
+Route.get('/edit/:id', ArticleController.viewEditArticle);
+Route.put(`/edit`, ArticleController.editArticle);
 export default Route;
