@@ -9,10 +9,18 @@ let article =  new Model({
 });
 try{
 article = await article.save();
-res.redirect("/");
+res.redirect("/main");
 }catch(e){
     console.log(e)
 }
-}
+},
+getAllArticle : async (req, res) => {
+const data = await Model.find()
+res.render(`index`,{data:data});
+},
+detailArticle : async (req,res)=>{
+ const dataD = await Model.findOne({_id :req.params.id})
+ res.render(`detail`,{data:dataD});
+    }
 }
 export default ArticleController;
