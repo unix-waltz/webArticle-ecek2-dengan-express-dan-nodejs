@@ -1,9 +1,15 @@
 import  express  from "express";
 const app = express();
 
+import Route from "./../src/Routes/Articles.js";
+
+
+app.set('view engine', 'ejs');
+app.use(`/main` ,Route);
+
 
 app.get(`/`,(req, res) => {
-    res.send(`helo duia`);
+    res.render('index');
 })
 
 app.listen(3000,() => {
